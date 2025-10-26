@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}社長挨拶 - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="company-page-header">
+    <div class="header-container">
+        <h1 class="company-page-title">社長挨拶</h1>
+        <p class="company-page-subtitle">PRESIDENT'S MESSAGE</p>
+    </div>
+</section>
+
+<section class="company-content-section">
+    <div class="company-content-wrapper">
+        <div class="breadcrumb">
+            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
+            <a href="{% url 'main:company' %}">会社情報</a> &gt; 
+            <span>社長挨拶</span>
+        </div>
+        
+        <div class="president-message-content">
+            <div class="president-profile">
+                <div class="president-image">
+                    <!-- 社長の写真を挿入する場合: main/static/images/president.jpg -->
+                    <div class="image-placeholder"></div>
+                </div>
+                <div class="president-info-box">
+                    <p class="president-title">代表取締役社長</p>
+                    <h2 class="president-name">田中 太郎</h2>
+                    <p class="president-name-en">Taro Tanaka</p>
+                </div>
+            </div>
+            
+            <div class="message-text">
+                <h3>未来を創造する企業として</h3>
+                <p>株式会社イルミラのウェブサイトをご覧いただき、誠にありがとうございます。</p>
+                <p>当社は創業以来、「未来を明るく照らす」という理念のもと、革新的な製品とサービスの提供に努めてまいりました。</p>
+                <p>これからも、お客様、株主の皆様、そして社会全体に貢献できる企業として、持続的な成長を目指してまいります。</p>
+                <p>今後とも変わらぬご支援を賜りますよう、よろしくお願い申し上げます。</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}沿革 - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="company-page-header">
+    <div class="header-container">
+        <h1 class="company-page-title">沿革</h1>
+        <p class="company-page-subtitle"></p>
+    </div>
+</section>
+
+<section class="company-content-section">
+    <div class="company-content-wrapper">
+        <div class="breadcrumb">
+            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
+            <a href="{% url 'main:company' %}">会社情報</a> &gt; 
+            <span>沿革</span>
+        </div>
+        
+        <div class="history-timeline">
+            <div class="history-item">
+                <div class="history-year">2024年</div>
+                <div class="history-events">
+                    <div class="history-event">
+                        <span class="event-month">3月</span>
+                        <p>合同会社アンダーウィル設立</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history-item">
+                <div class="history-year">2025年</div>
+                <div class="history-events">
+                    <div class="history-event">
+                        <span class="event-month">7月</span>
+                        <p>本社事務所を中区へ移転</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-item">
+                <div class="history-year">2026年</div>
+                <div class="history-events">
+                    <div class="history-event">
+                        <span class="event-month">1月</span>
+                        <p>株式会社イルミラへ変更登記</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

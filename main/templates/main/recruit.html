@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}採用情報 - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="company-page-header">
+    <div class="header-container">
+        <h1 class="company-page-title">採用情報</h1>
+        <p class="company-page-subtitle">RECRUITMENT</p>
+    </div>
+</section>
+
+<section class="company-content-section">
+    <div class="company-content-wrapper">
+        <div class="breadcrumb">
+            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
+            <span>採用情報</span>
+        </div>
+        
+        <div class="recruit-introduction">
+            <h2 class="section-heading">採用メッセージ</h2>
+            <p class="recruit-intro-text">
+                株式会社イルミラでは、共に成長し、未来を創造する仲間を募集しています。
+            </p>
+        </div>
+
+        <div class="recruit-section-block">
+            <h2 class="section-heading">募集要項</h2>
+            
+            <div class="job-posting">
+                <h3 class="job-title">■ システムエンジニア（正社員）</h3>
+                <table class="job-details-table">
+                    <tbody>
+                        <tr><th>仕事内容</th><td>システムの設計・開発・運用保守</td></tr>
+                        <tr><th>応募資格</th><td>大卒以上、システム開発経験者</td></tr>
+                        <tr><th>勤務地</th><td>名古屋本社</td></tr>
+                        <tr><th>給与</th><td>月給25万円～50万円</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="button-center">
+            <a href="{% url 'main:recruit_apply' %}" class="apply-button">応募フォームはこちら</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

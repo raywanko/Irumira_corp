@@ -1,0 +1,48 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}会社概要 - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="company-page-header">
+    <div class="header-container">
+        <h1 class="company-page-title">会社概要・役員一覧</h1>
+        <p class="company-page-subtitle">COMPANY PROFILE</p>
+    </div>
+</section>
+
+<section class="company-content-section">
+    <div class="company-content-wrapper">
+        <div class="breadcrumb">
+            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
+            <a href="{% url 'main:company' %}">会社情報</a> &gt; 
+            <span>会社概要</span>
+        </div>
+        
+        <div class="company-info-section">
+            <h2 class="section-heading">会社概要</h2>
+            <table class="company-table">
+                <tbody>
+                    <tr><th>会社名</th><td>株式会社イルミラ</td></tr>
+                    <tr><th>設立</th><td>2020年4月1日</td></tr>
+                    <tr><th>資本金</th><td>1億円</td></tr>
+                    <tr><th>代表者</th><td>代表取締役社長 田中 太郎</td></tr>
+                    <tr><th>所在地</th><td>愛知県名古屋市中区錦3-19-20</td></tr>
+                    <tr><th>事業内容</th><td>システム開発・コンサルティング</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="company-info-section">
+            <h2 class="section-heading">役員一覧</h2>
+            <table class="company-table">
+                <tbody>
+                    <tr><th>代表取締役社長</th><td>田中 太郎</td></tr>
+                    <tr><th>取締役副社長</th><td>佐藤 花子</td></tr>
+                    <tr><th>常務取締役</th><td>鈴木 一郎</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

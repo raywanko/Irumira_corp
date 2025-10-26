@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ヒーローセクション（背景画像挿入可能） -->
+<section class="hero hero-with-image">
+    <!-- 
+    背景画像を変更する場合:
+    main/static/images/hero/hero-bg.jpg に画像を配置してください
+    推奨サイズ: 横1920px × 縦1080px以上
+    -->
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+        <h2 class="hero-title">未来を明るく照らす企業</h2>
+        <p class="hero-description">ここにテキストを入れてください（田中さん用）<br>複数行のテキストを入れることができます</p>
+        <p class="hero-subtitle">Innovation for a Brighter Future</p>
+    </div>
+</section>
+
+<section class="menu-grid-wrapper">
+    <div class="menu-grid">
+        {% for item in menu_data %}
+        <a href="{{ item.link }}" class="menu-card">
+            <div class="menu-card-inner">
+                <div class="menu-card-content">
+                    <h3 class="menu-card-title">{{ item.title }}</h3>
+                    <p class="menu-subtitle">{{ item.subtitle }}</p>
+                </div>
+            </div>
+            <div class="menu-card-bar"></div>
+        </a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="recruit-section recruit-section-1">
+    <div class="recruit-bg-image"></div>
+    <div class="recruit-overlay"></div>
+    <div class="recruit-content">
+        <h2>未来を明るく照らす企業</h2>
+        <p>テキスト（田中さんが入れて）</p>
+    </div>
+</section>
+
+<section class="recruit-section recruit-section-2">
+    <div class="recruit-bg-image"></div>
+    <div class="recruit-overlay"></div>
+    <div class="recruit-content">
+        <h3 class="section-title">RECRUIT</h3>
+        <h2>未来を明るく照らす企業</h2>
+        <p>テキスト（田中が入れて）</p>
+        <a href="{% url 'main:recruit' %}" class="btn-recruit">採用情報はこちら</a>
+    </div>
+</section>
+
+<!-- Googleマップ連携セクション -->
+<section class="access-section">
+    <h2 class="section-title">ACCESS</h2>
+    <p class="access-info">所在地：愛知県名古屋市中区錦3-19-20 ロジック千種ビル3階</p>
+    
+    <!-- Googleマップ埋め込み -->
+    <div class="google-map-container">
+        <div class="google-map-container">
+    <iframe 
+        src="https://maps.google.com/maps?q=愛知県名古屋市中区新栄3丁目19−20&hl=ja&z=16&output=embed"
+        class="google-map-iframe"
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        title="株式会社イルミラの地図">
+    </iframe>
+</div>
+    </div>
+    <div class="map-instructions">
+        <p class="map-note">
+        </p>
+
+</section>
+
+<section class="contact-section">
+    <a href="{% url 'main:contact' %}" class="btn-contact">
+        <span>CONTACT</span>
+        <small>お問い合わせはこちら</small>
+    </a>
+</section>
+{% endblock %}

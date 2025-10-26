@@ -1,0 +1,135 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}採用応募フォーム - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="contact-form-section">
+    <div class="contact-container">
+        <h1 class="page-title">採用応募フォーム</h1>
+        <p class="page-subtitle">RECRUITMENT APPLICATION</p>
+        
+        <form method="post" enctype="multipart/form-data" class="contact-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>希望職種 <span class="required">*</span></label>
+                <select name="desired_position" required>
+                    <option value="">選択してください</option>
+                    <option value="システムエンジニア">システムエンジニア</option>
+                    <option value="プロジェクトマネージャー">プロジェクトマネージャー</option>
+                    <option value="営業">営業</option>
+                    <option value="その他">その他</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>お名前（姓） <span class="required">*</span></label>
+                    <input type="text" name="last_name" required>
+                </div>
+                <div class="form-group">
+                    <label>お名前（名） <span class="required">*</span></label>
+                    <input type="text" name="first_name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>フリガナ（セイ） <span class="required">*</span></label>
+                    <input type="text" name="last_name_kana" required>
+                </div>
+                <div class="form-group">
+                    <label>フリガナ（メイ） <span class="required">*</span></label>
+                    <input type="text" name="first_name_kana" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label>生年月日 <span class="required">*</span></label>
+                    <input type="date" name="birth_date" required>
+                </div>
+                <div class="form-group">
+                    <label>性別 <span class="required">*</span></label>
+                    <select name="gender" required>
+                        <option value="">選択してください</option>
+                        <option value="男性">男性</option>
+                        <option value="女性">女性</option>
+                        <option value="その他">その他</option>
+                        <option value="回答しない">回答しない</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>メールアドレス <span class="required">*</span></label>
+                <input type="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label>電話番号 <span class="required">*</span></label>
+                <input type="tel" name="phone" required placeholder="例: 090-1234-5678">
+            </div>
+            
+            <div class="form-group">
+                <label>住所 <span class="required">*</span></label>
+                <textarea name="address" rows="3" required placeholder="郵便番号、都道府県、市区町村、番地、建物名など"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>最終学歴 <span class="required">*</span></label>
+                <select name="education" required>
+                    <option value="">選択してください</option>
+                    <option value="高校卒業">高校卒業</option>
+                    <option value="専門学校卒業">専門学校卒業</option>
+                    <option value="短期大学卒業">短期大学卒業</option>
+                    <option value="大学卒業">大学卒業</option>
+                    <option value="大学院修了">大学院修了</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>職務経歴 <span class="required">*</span></label>
+                <textarea name="work_experience" rows="8" required placeholder="これまでの職務経歴を具体的にご記入ください"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>保有資格</label>
+                <textarea name="qualifications" rows="4" placeholder="取得している資格があればご記入ください"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>志望動機 <span class="required">*</span></label>
+                <textarea name="motivation" rows="6" required placeholder="当社への応募理由をご記入ください"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>自己PR <span class="required">*</span></label>
+                <textarea name="self_pr" rows="6" required placeholder="ご自身の強みやアピールポイントをご記入ください"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>希望入社時期</label>
+                <select name="desired_start_date">
+                    <option value="">選択してください</option>
+                    <option value="即日">即日</option>
+                    <option value="1ヶ月以内">1ヶ月以内</option>
+                    <option value="2ヶ月以内">2ヶ月以内</option>
+                    <option value="3ヶ月以内">3ヶ月以内</option>
+                    <option value="応相談">応相談</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>その他、特記事項</label>
+                <textarea name="remarks" rows="4" placeholder="その他、お伝えしたいことがあればご記入ください"></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">応募する</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

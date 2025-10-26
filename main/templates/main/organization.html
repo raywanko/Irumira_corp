@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}組織概念図 - 株式会社イルミラ{% endblock %}
+
+{% block content %}
+<section class="company-page-header">
+    <div class="header-container">
+        <h1 class="company-page-title">事業内容</h1>
+        <p class="company-page-subtitle"></p>
+    </div>
+</section>
+
+<section class="company-content-section">
+    <div class="company-content-wrapper">
+        <div class="breadcrumb">
+            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
+            <a href="{% url 'main:company' %}">会社情報</a> &gt; 
+            <span>事業内容</span>
+        </div>
+        
+        <div class="organization-diagram">
+            <div class="org-chart">
+                <div class="org-tier">
+                    <div class="org-unit"><h3>株主総会</h3></div>
+                </div>
+                <div class="org-tier">
+                    <div class="org-unit"><h3>取締役会</h3></div>
+                </div>
+                <div class="org-tier">
+                    <div class="org-unit highlight"><h3>代表取締役社長</h3></div>
+                </div>
+                <div class="org-tier departments">
+                    <div class="org-unit department"><h3>管理本部</h3></div>
+                    <div class="org-unit department"><h3>営業本部</h3></div>
+                    <div class="org-unit department"><h3>技術本部</h3></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

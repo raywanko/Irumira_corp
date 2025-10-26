@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#00f5ff">
+    <title>{% block title %}株式会社イルミラ{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="{% url 'main:index' %}">
+                    <img src="{% static 'images/logo.jpg' %}" alt="株式会社イルミラ ロゴ" class="logo-image">
+                    <h1>株式会社イルミラ</h1>
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+            <li><a href="{% url 'main:index' %}">ホーム</a></li>
+            <li class="nav-submenu">
+                <span class="nav-parent">会社情報</span>
+                <ul class="nav-submenu-list">
+                    <li><a href="{% url 'main:company_message' %}">社長挨拶</a></li>
+                    <li><a href="{% url 'main:company_profile' %}">会社概要・役員一覧</a></li>
+                    <li><a href="{% url 'main:company_history' %}">沿革</a></li>
+                    <li><a href="{% url 'main:company_organization' %}">事業内容</a></li>
+                </ul>
+            </li>
+            <li><a href="{% url 'main:recruit' %}">採用情報</a></li>
+            <li><a href="{% url 'main:contact' %}">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        {% if messages %}
+        <div class="messages-container">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 株式会社イルミラ All Rights Reserved.</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
