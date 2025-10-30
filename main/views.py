@@ -5,6 +5,7 @@ from django.conf import settings
 from datetime import date
 import requests
 from django.http import HttpResponse
+import logging
 
 
 
