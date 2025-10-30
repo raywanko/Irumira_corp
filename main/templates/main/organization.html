@@ -1,41 +1,78 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}組織概念図 - 株式会社イルミラ{% endblock %}
+{% block title %}事業内容 - 株式会社イルミラ{% endblock %}
 
 {% block content %}
-<section class="company-page-header">
-    <div class="header-container">
-        <h1 class="company-page-title">事業内容</h1>
-        <p class="company-page-subtitle"></p>
+<!-- ヒーローセクション -->
+<section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+        <p class="service-hero-subtitle">SERVICE</p>
+        <h1 class="service-hero-title">サービス</h1>
     </div>
 </section>
 
-<section class="company-content-section">
-    <div class="company-content-wrapper">
-        <div class="breadcrumb">
-            <a href="{% url 'main:index' %}">ホーム</a> &gt; 
-            <a href="{% url 'main:company' %}">会社情報</a> &gt; 
-            <span>事業内容</span>
-        </div>
-        
-        <div class="organization-diagram">
-            <div class="org-chart">
-                <div class="org-tier">
-                    <div class="org-unit"><h3>株主総会</h3></div>
+<section class="service-main-section">
+    <div class="service-container">
+        <!-- セールスプロモーション事業 -->
+        <div class="service-block sales-promotion">
+            <div class="service-block-inner">
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">◆</div>
                 </div>
-                <div class="org-tier">
-                    <div class="org-unit"><h3>取締役会</h3></div>
+                <h2 class="service-block-title">セールスプロモーション事業</h2>
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="セールスプロモーション" class="service-image">
                 </div>
-                <div class="org-tier">
-                    <div class="org-unit highlight"><h3>代表取締役社長</h3></div>
-                </div>
-                <div class="org-tier departments">
-                    <div class="org-unit department"><h3>管理本部</h3></div>
-                    <div class="org-unit department"><h3>営業本部</h3></div>
-                    <div class="org-unit department"><h3>技術本部</h3></div>
+                <div class="service-description">
+                    <p>私たちは、企業の販売促進を総合的にサポートするプロフェッショナル集団です。市場調査から戦略立案、実行支援まで、お客様のビジネス成長を加速させるプロモーション活動を展開しています。</p>
+                    <p>「ベストパートナー」となることをミッションとしています。単なる販促支援ではなく、お客様の事業成長そのものをサポートする存在でありたいと考えています。</p>
+                    <ul class="service-features">
+                        <li><span class="feature-icon">✓</span> キャンペーン企画・運営</li>
+                        <li><span class="feature-icon">✓</span> イベントプロモーション</li>
+                        <li><span class="feature-icon">✓</span> デジタルマーケティング</li>
+                        <li><span class="feature-icon">✓</span> 販売促進ツール制作</li>
+                    </ul>
                 </div>
             </div>
+        </div>
+
+        <!-- IT事業 -->
+        <div class="service-block it-business">
+            <div class="service-block-inner">
+                <div class="service-icon-wrapper">
+                    <div class="service-icon">◆</div>
+                </div>
+                <h2 class="service-block-title">IT事業</h2>
+                <div class="service-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="IT事業" class="service-image">
+                </div>
+                <div class="service-description">
+                    <p>最新のテクノロジーを活用し、企業のDX推進を強力にサポートします。私たちは単なるシステム開発会社ではありません。お客様の事業課題を深く理解し、テクノロジーの力で解決する「デジタルパートナー」です。</p>
+                    <p>クラウド、AI、IoTなど最先端技術を駆使しながらも、常にユーザー視点を忘れず、使いやすさと効果を両立したソリューションを提供します。お客様の成長と共に進化し続けることが、私たちの使命です。</p>
+                    <ul class="service-features">
+                        <li><span class="feature-icon">✓</span> Webシステム開発</li>
+                        <li><span class="feature-icon">✓</span> モバイルアプリ開発</li>
+                        <li><span class="feature-icon">✓</span> クラウドインフラ構築</li>
+                        <li><span class="feature-icon">✓</span> ITコンサルティング</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- フッター会社情報 -->
+<section class="service-footer-section">
+    <div class="service-footer-content">
+        <div class="footer-logo-area">
+            <img src="{% static 'images/logo.jpg' %}" alt="ILLUMIRA Logo" class="footer-company-logo">
+            <h3 class="footer-company-name">ILLUMIRA</h3>
+        </div>
+        <div class="footer-address-area">
+            <p class="footer-company-address">〒460-0007 愛知県名古屋市中区新栄3-19-20 ロジェ千種 5階</p>
         </div>
     </div>
 </section>

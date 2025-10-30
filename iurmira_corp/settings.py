@@ -6,7 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-change-this-in-production'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['192.168.3.1', '*', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -84,7 +84,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.onrender.com',
-    '*'  # 本番環境では削除推奨
+     # 本番環境では削除推奨
 ]
 
 INSTALLED_APPS = [
@@ -173,3 +173,19 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'gmapapi202511@gmail.com')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'otjd ijhw bahi kuor')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'gmapapi202511@gmail.com')
+"""
+# ========== メール設定 ==========
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# お名前.comのSMTPサーバー設定
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.onamae.ne.jp')  # または契約プランによって異なる
+EMAIL_PORT = 465  # SSL接続の場合
+EMAIL_USE_SSL = True  # SSLを使用
+# EMAIL_PORT = 587  # TLS接続の場合
+# EMAIL_USE_TLS = True  # TLSを使用
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'tanaka-marina@illumira.jp')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')  # メールアカウントのパスワード
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'tanaka-marina@illumira.jp')
+"""

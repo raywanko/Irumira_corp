@@ -143,3 +143,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 100);
     });
 });
+
+// 事業内容ページのスクロールアニメーション
+document.addEventListener('DOMContentLoaded', function() {
+    // スクロールアニメーション
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    const serviceBlocks = document.querySelectorAll('.service-block');
+    if (serviceBlocks.length > 0) {
+        serviceBlocks.forEach(block => {
+            observer.observe(block);
+        });
+    }
+});

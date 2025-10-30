@@ -263,7 +263,7 @@ body {
 
 /* 背景画像ありの場合 */
 .hero.hero-with-image {
-    background-image: url('../images/hero/hero-bg.jpg');
+    background-image: url('../images/hero/hero-bg.JPG');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -430,11 +430,11 @@ body {
 }
 
 .recruit-section-1 .recruit-bg-image {
-    background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600');
+    background-image: url('../images/DSC_1387.JPG');
 }
 
 .recruit-section-2 .recruit-bg-image {
-    background-image: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1600');
+    background-image: url('../images/DSC_1488.JPG');
 }
 
 .recruit-overlay {
@@ -453,10 +453,23 @@ body {
     max-width: 800px;
 }
 
+.recruit-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
 .recruit-content h2 {
     font-size: clamp(1.5rem, 5vw, 2.5rem);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-weight: bold;
+}
+
+/* recruit-section-2の場合は小さく上書き */
+.recruit-section-2 .recruit-content h2 {
+    font-size: clamp(0.85rem, 2.2vw, 1.2rem) !important;
+    white-space: nowrap !important;
+    line-height: 1.4 !important;
 }
 
 .recruit-content p {
@@ -487,6 +500,381 @@ body {
 
 .btn-recruit:active {
     transform: scale(0.95);
+}
+
+/* ========== 事業内容ページ ========== */
+.service-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.service-card {
+    background: white;
+    border: 2px solid #333;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.service-card-title {
+    background: white;
+    color: #333;
+    padding: 20px 30px;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    margin: 0;
+}
+
+.service-card-content {
+    padding: 30px;
+    line-height: 1.8;
+}
+
+.service-card-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li {
+    padding: 10px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #333;
+}
+
+.service-list li::before {
+    content: '・';
+    position: absolute;
+    left: 10px;
+    color: #00f5ff;
+    font-weight: bold;
+}
+
+.service-footer {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.company-info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.company-address {
+    text-align: center;
+    color: #666;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .company-info-box {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .company-address {
+        text-align: right;
+    }
+}
+
+/* ========== 事業内容ページ ========== */
+
+/* サービスヒーロー */
+.service-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/logo.jpg') center/cover;
+    animation: kenburns 20s ease infinite alternate;
+}
+
+@keyframes kenburns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.service-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.85), rgba(0, 255, 136, 0.85));
+    z-index: 1;
+}
+
+.service-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.service-hero-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+}
+
+.service-hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease 0.4s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* メインセクション */
+.service-main-section {
+    padding: 60px 20px;
+    background: #f8f9fa;
+}
+
+.service-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-block {
+    background: white;
+    border-radius: 25px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.8s ease forwards;
+}
+
+.service-block:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.service-block:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-block-inner {
+    padding: 0;
+}
+
+.service-icon-wrapper {
+    background: linear-gradient(135deg, #00f5ff, #00ff88);
+    padding: 30px;
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: white;
+    animation: rotate 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+}
+
+.service-block-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    padding: 25px 30px;
+    margin: 0;
+    background: linear-gradient(135deg, #f8f9fa, white);
+    color: #333;
+    border-bottom: 3px solid #00f5ff;
+}
+
+.service-image-wrapper {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-block:hover .service-image {
+    transform: scale(1.05);
+}
+
+.service-description {
+    padding: 30px;
+    line-height: 1.9;
+}
+
+.service-description p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.service-features {
+    list-style: none;
+    padding: 20px 0 0;
+    margin: 0;
+}
+
+.service-features li {
+    padding: 12px 0;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.service-features li:nth-child(1) { animation-delay: 0.6s; }
+.service-features li:nth-child(2) { animation-delay: 0.7s; }
+.service-features li:nth-child(3) { animation-delay: 0.8s; }
+.service-features li:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #00f5ff, #00ff88);
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+}
+
+/* フッターセクション */
+.service-footer-section {
+    background: linear-gradient(135deg, #1a1a1a, #000);
+    padding: 50px 20px;
+}
+
+.service-footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.footer-company-name {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.footer-company-address {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .service-footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .service-image-wrapper {
+        height: 350px;
+    }
 }
 
 /* ========== アクセスセクション（Googleマップ対応） ========== */
@@ -638,25 +1026,56 @@ body {
     position: relative;
 }
 
-.president-profile {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    padding: 30px 20px;
-    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
-    border-radius: 15px;
-    margin-bottom: 40px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    align-items: center;
-    text-align: center;
+/* 画像の見た目をどのデバイスでも安定させる */
+.president-photo {
+  width: clamp(120px, 18vw, 220px); /* 横幅の最小・推奨・最大 */
+  aspect-ratio: 3 / 4;              /* 縦長比率を固定 */
+  height: auto;                     /* aspect-ratio に従う */
+  object-fit: cover;
+  object-position: center top;      /* 顔を上寄せで見せたい場合 */
+  border-radius: 8px;
+  display: block;
 }
 
-.image-placeholder {
-    width: 180px;
-    height: 180px;
-    background: linear-gradient(135deg, #00f5ff, #00ff88);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 245, 255, 0.3);
+/* プロフィール全体をレスポンシブに横並び／縦並び切替 */
+.president-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  text-align: left;
+}
+
+/* 情報ブロックの幅調整（画像サイズに合わせる） */
+.president-image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* テキスト側は残り幅を使う */
+.president-info-box {
+  flex: 1 1 auto;
+}
+
+/* モバイルでは縦並び・中央揃え */
+@media (max-width: 768px) {
+  .president-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+  .president-photo {
+    width: clamp(120px, 28vw, 180px);
+    height: clamp(120px, 28vw, 180px);
+  }
 }
 
 .president-name {
