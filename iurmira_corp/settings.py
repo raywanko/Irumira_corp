@@ -78,6 +78,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-change-this-in-production')
 
+# reCAPTCHA 設定
+RECAPTCHA_SITE_KEY = '6LcDRfwrAAAAACwrID5n0qA_ViVC_M09GwebnhJf'
+RECAPTCHA_SECRET_KEY = '6LcDRfwrAAAAAILivI2OiFbqd-PgWhxUXLXZ1xUU'
+
+
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [

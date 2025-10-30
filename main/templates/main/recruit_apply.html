@@ -8,10 +8,13 @@
     <div class="contact-container">
         <h1 class="page-title">採用応募フォーム</h1>
         <p class="page-subtitle">RECRUITMENT APPLICATION</p>
-        
-        <form method="post" enctype="multipart/form-data" class="contact-form">
+
+        <form method="post" enctype="multipart/form-data" class="contact-form" id="recruitForm">
             {% csrf_token %}
-            
+
+            <!-- reCAPTCHA v3 トークン格納用 -->
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+
             <div class="form-group">
                 <label>希望職種 <span class="required">*</span></label>
                 <select name="desired_position" required>
@@ -22,7 +25,7 @@
                     <option value="その他">その他</option>
                 </select>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>お名前（姓） <span class="required">*</span></label>
@@ -33,7 +36,7 @@
                     <input type="text" name="first_name" required>
                 </div>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>フリガナ（セイ） <span class="required">*</span></label>
@@ -44,11 +47,11 @@
                     <input type="text" name="first_name_kana" required>
                 </div>
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>生年月日 <span class="required">*</span></label>
-                    <input type="date" name="birth_date" required>
+                    <input type="date" name="birth_date" id="birth_date" required>
                 </div>
                 <div class="form-group">
                     <label>性別 <span class="required">*</span></label>
@@ -61,22 +64,22 @@
                     </select>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label>メールアドレス <span class="required">*</span></label>
                 <input type="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
                 <label>電話番号 <span class="required">*</span></label>
                 <input type="tel" name="phone" required placeholder="例: 090-1234-5678">
             </div>
-            
+
             <div class="form-group">
                 <label>住所 <span class="required">*</span></label>
                 <textarea name="address" rows="3" required placeholder="郵便番号、都道府県、市区町村、番地、建物名など"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label>最終学歴 <span class="required">*</span></label>
                 <select name="education" required>
@@ -88,27 +91,27 @@
                     <option value="大学院修了">大学院修了</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label>職務経歴 <span class="required">*</span></label>
                 <textarea name="work_experience" rows="8" required placeholder="これまでの職務経歴を具体的にご記入ください"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label>保有資格</label>
                 <textarea name="qualifications" rows="4" placeholder="取得している資格があればご記入ください"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label>志望動機 <span class="required">*</span></label>
                 <textarea name="motivation" rows="6" required placeholder="当社への応募理由をご記入ください"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label>自己PR <span class="required">*</span></label>
                 <textarea name="self_pr" rows="6" required placeholder="ご自身の強みやアピールポイントをご記入ください"></textarea>
             </div>
-            
+
             <div class="form-group">
                 <label>希望入社時期</label>
                 <select name="desired_start_date">
@@ -120,16 +123,43 @@
                     <option value="応相談">応相談</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label>その他、特記事項</label>
                 <textarea name="remarks" rows="4" placeholder="その他、お伝えしたいことがあればご記入ください"></textarea>
             </div>
-            
+
             <div class="form-actions">
                 <button type="submit" class="btn-submit">応募する</button>
             </div>
         </form>
     </div>
 </section>
+
+<!-- Google reCAPTCHA v3 -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_SITE_KEY }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // 今日の日付を生年月日の max に設定
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("birth_date").setAttribute("max", today);
+
+    // reCAPTCHA トークン生成
+    grecaptcha.ready(function() {
+        grecaptcha.execute("{{ RECAPTCHA_SITE_KEY }}", {action: "submit"}).then(function(token) {
+            document.getElementById("g-recaptcha-response").value = token;
+        });
+    });
+
+    // 送信時 reCAPTCHA 再実行
+    const form = document.getElementById("recruitForm");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        grecaptcha.execute("{{ RECAPTCHA_SITE_KEY }}", {action: "submit"}).then(function(token) {
+            document.getElementById("g-recaptcha-response").value = token;
+            form.submit();
+        });
+    });
+});
+</script>
 {% endblock %}

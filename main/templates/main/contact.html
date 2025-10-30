@@ -9,7 +9,7 @@
         <h1 class="page-title">お問い合わせ</h1>
         <p class="page-subtitle">CONTACT</p>
         
-        <form method="post" class="contact-form">
+        <form id="contactForm" method="post" class="contact-form">
             {% csrf_token %}
             
             <div class="form-group">
@@ -21,12 +21,12 @@
                     <option value="その他">その他</option>
                 </select>
             </div>
-            
+
             <div class="form-group">
                 <label>会社名</label>
                 <input type="text" name="company_name">
             </div>
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>お名前（姓） <span class="required">*</span></label>
@@ -37,26 +37,46 @@
                     <input type="text" name="first_name" required>
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label>メールアドレス <span class="required">*</span></label>
                 <input type="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
                 <label>電話番号</label>
                 <input type="tel" name="phone" placeholder="例: 090-1234-5678">
             </div>
-            
+
             <div class="form-group">
                 <label>お問い合わせ内容 <span class="required">*</span></label>
                 <textarea name="message" rows="8" required></textarea>
             </div>
-            
+
+            <!-- reCAPTCHA トークン格納用 -->
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+
             <div class="form-actions">
                 <button type="submit" class="btn-submit">送信する</button>
             </div>
         </form>
     </div>
 </section>
+
+<!-- reCAPTCHA スクリプト -->
+<script src="https://www.google.com/recaptcha/api.js?render={{ RECAPTCHA_SITE_KEY }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+            grecaptcha.execute("{{ RECAPTCHA_SITE_KEY }}", {action: "submit"}).then(function(token) {
+                document.getElementById("g-recaptcha-response").value = token;
+                form.submit();
+            });
+        });
+    });
+});
+</script>
 {% endblock %}
