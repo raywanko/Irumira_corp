@@ -28,7 +28,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'iurmira_corp.urls'
+ROOT_URLCONF = 'irumira_corp.urls'
 
 TEMPLATES = [
     {
@@ -46,7 +46,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'iurmira_corp.wsgi.application'
+WSGI_APPLICATION = 'irumira_corp.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -89,6 +89,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '.onrender.com',
+    'illumira.jp',
      # 本番環境では削除推奨
 ]
 
@@ -113,7 +114,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'iurmira_corp.urls'
+ROOT_URLCONF = 'irumira_corp.urls'
 
 TEMPLATES = [
     {
@@ -131,7 +132,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'iurmira_corp.wsgi.application'
+WSGI_APPLICATION = 'iruira_corp.wsgi.application'
 
 DATABASES = {
     'default': {
